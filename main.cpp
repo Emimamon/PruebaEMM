@@ -1,4 +1,4 @@
-// Base proyecto 4
+// Proyecto 4 Emiliana
 #include <iostream>
 #include <vector>
 #include <string>
@@ -11,8 +11,8 @@ struct Tarea {
     bool completada;
 };
 
-// Protoripos
-// void agregarTarea(vector<Tarea>& tareas);
+// Prototipos
+//void agregarTarea(vector<Tarea>& tareas);
 // void mostrarTareas(const vector<Tarea>& tareas);
 // void completarTarea(vector<Tarea>& tareas);
 
@@ -54,16 +54,42 @@ int main() {
 }
 
 // Agrega una nueva tarea al vector
-// void agregarTarea(vector<Tarea>& tareas) {
-// 
-// }
+void agregarTarea(vector<Tarea>& tareas) {
+    Tarea Nueva;
+    
+    cout << "Ingrese la tarea: ";
+    getline(cin, nueva.descripcion);
+    
+    if(nueva.descripcion == ""){
+        cout<< "La tarea no puede estar vacia";
+        return; 
+    }
+    
+    nueva.completada = false;
+    
+    tareas.push_back(nueva);
+    cout << "Nueva tarea a;adida correctamente";
+}
 
 // Muestra todas las tareas
-// void mostrarTareas(const vector<Tarea>& tareas) {
-// 
-// }
+void mostrarTareas(const vector<Tarea>& tareas) {
+    cout<< "Tareas";
+    
+    for( i = 0; i< tareas.size(); i++){
+        cout << i + 1<< ". ";
+        
+        if(tarea.completada == true){
+            cout<<"[Completada]"
+        }   else{
+            cout<<"[Pendiente]";
+        }
+        
+        cout<< tareas[i].descripcion << endl;
+    }
+ }
 
 // Marca una tarea como completada
 // void completarTarea(vector<Tarea>& tareas) {
 // 
 // }
+
