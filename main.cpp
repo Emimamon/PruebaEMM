@@ -89,8 +89,7 @@ void agregarTarea(vector<Tarea>& tareas) {
         } else {
             cout << "[Pendiente]";
         }
-     cout << "[" << tareas[i].prioridad << "]" <<endl;
-     cout << tareas[i].descripcion << endl;
+        cout << "[" << tareas[i].prioridad << "] " << tareas[i].descripcion << endl;
          
      }
    }
