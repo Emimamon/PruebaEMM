@@ -1,4 +1,4 @@
-// Proyecto 4 Emiliana
+//Proyecto 4 Emiliana 
 #include <iostream>
 #include <vector>
 #include <string>
@@ -9,12 +9,13 @@ using namespace std;
 struct Tarea {
     string descripcion;
     bool completada;
+    string prioridad;
 };
 
 // Prototipos
-//void agregarTarea(vector<Tarea>& tareas);
-// void mostrarTareas(const vector<Tarea>& tareas);
-// void completarTarea(vector<Tarea>& tareas);
+void agregarTarea(vector<Tarea>& tareas);
+void mostrarTareas(const vector<Tarea>& tareas);
+ void completarTarea(vector<Tarea>& tareas);
 
 int main() {
     vector<Tarea> tareas;
@@ -33,13 +34,13 @@ int main() {
 
         switch (opcion) {
             case 1:
-                // agregarTarea(tareas);
+                 agregarTarea(tareas);
                 break;
             case 2:
-                // mostrarTareas(tareas);
+                 mostrarTareas(tareas);
                 break;
             case 3:
-                // completarTarea(tareas);
+                 completarTarea(tareas);
                 break;
             case 4:
                 cout << "Saliendo del programa...\n";
@@ -55,41 +56,63 @@ int main() {
 
 // Agrega una nueva tarea al vector
 void agregarTarea(vector<Tarea>& tareas) {
-    Tarea Nueva;
-    
-    cout << "Ingrese la tarea: ";
+    Tarea nueva;
+
+    cout << "Ingrese la tarea";
     getline(cin, nueva.descripcion);
     
-    if(nueva.descripcion == ""){
-        cout<< "La tarea no puede estar vacia";
-        return; 
+    if (nueva.descripcion == ""){
+        cout <<"La tarea no puede estar vacía";
+        return;
     }
+    
+    cout <<"Ingrese prioridad: ";
+    getline(cin, nueva.prioridad);
     
     nueva.completada = false;
     
     tareas.push_back(nueva);
-    cout << "Nueva tarea a;adida correctamente";
+    cout << "Nueva tarea añadida correctamente";
+    
 }
 
 // Muestra todas las tareas
-void mostrarTareas(const vector<Tarea>& tareas) {
-    cout<< "Tareas";
-    
-    for( i = 0; i< tareas.size(); i++){
-        cout << i + 1<< ". ";
+ void mostrarTareas(const vector<Tarea>& tareas){
+     cout << "\nTAREAS\n\n";
+     
+     for(int i = 0; i <tareas.size(); i++) {
+        // Número. [Estado] [Prioridad] Descripción
+        cout << i + 1 <<". ";
         
-        if(tarea.completada == true){
-            cout<<"[Completada]"
-        }   else{
-            cout<<"[Pendiente]";
+        if (tareas[i].completada == true){
+            cout << "[Completada]";
+        } else {
+            cout << "[Pendiente]";
         }
-        
-        cout<< tareas[i].descripcion << endl;
-    }
- }
+     cout << "[" << tareas[i].prioridad << "]" <<endl;
+     cout << tareas[i].descripcion << endl;
+         
+     }
+   }
 
 // Marca una tarea como completada
-// void completarTarea(vector<Tarea>& tareas) {
-// 
-// }
-
+ void completarTarea(vector<Tarea>& tareas) {
+     //Imprimir tareas
+     mostrarTareas(tareas);
+     
+     //Cambiar tarea.completada a true
+     
+     //¿Número de tarea a completar?
+     int numeroTarea;
+     cout << "Selecciones la tarea completada: ";
+     cin >> numeroTarea;
+     
+     if (numeroTarea < 1 or numeroTarea > tareas.size()){
+         cout << "Tarea inválida";
+         return;
+     }
+     
+     tareas[numeroTarea -1].completada = true;
+     cout << "Tarea completada correctamente" << endl;
+    
+}
